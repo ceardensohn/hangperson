@@ -50,7 +50,14 @@ class HangpersonApp < Sinatra::Base
   # wrong_guesses and word_with_guesses from @game.
   get '/show' do
     ### YOUR CODE HERE ###
-    erb :show # You may change/remove this line
+    state = @game.check_win_or_lose
+    if state == :play
+      erb :show # You may change/remove this line
+    elsif state == :win
+      redirect '/win'
+    else
+      redirect '/lose'
+    end
   end
   
   get '/win' do
