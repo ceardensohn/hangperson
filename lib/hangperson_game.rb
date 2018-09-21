@@ -43,7 +43,7 @@ class HangpersonGame
   def check_win_or_lose
     if (@word.chars|[]).sort == (@guesses.chars|[]).sort
       return :win
-    elsif @guesses.length + @wrong_guesses.length >= 7
+    elsif @wrong_guesses.length >= 7
       return :lose
     else
       return :play
