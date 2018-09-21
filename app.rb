@@ -42,9 +42,8 @@ class HangpersonApp < Sinatra::Base
     status = @game.guess(letter)
     if !status
       flash[:message] = "You already guessed #{letter}"
-    else
-      redirect '/show'
     end
+    redirect '/show'
   end
   
   # Everytime a guess is made, we should eventually end up at this route.
